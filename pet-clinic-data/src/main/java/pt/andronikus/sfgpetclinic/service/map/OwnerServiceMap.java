@@ -1,11 +1,12 @@
 package pt.andronikus.sfgpetclinic.service.map;
 
+import org.springframework.stereotype.Service;
 import pt.andronikus.sfgpetclinic.model.Owner;
-import pt.andronikus.sfgpetclinic.service.CrudService;
 import pt.andronikus.sfgpetclinic.service.OwnerService;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
     @Override
     public Owner findById(Long id) {

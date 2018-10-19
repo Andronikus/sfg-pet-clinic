@@ -1,21 +1,21 @@
 package pt.andronikus.sfgpetclinic.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 import pt.andronikus.sfgpetclinic.model.Owner;
 import pt.andronikus.sfgpetclinic.model.Vet;
 import pt.andronikus.sfgpetclinic.service.OwnerService;
 import pt.andronikus.sfgpetclinic.service.VetService;
-import pt.andronikus.sfgpetclinic.service.map.OwnerServiceMap;
-import pt.andronikus.sfgpetclinic.service.map.VetServiceMap;
 
+@Component
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
