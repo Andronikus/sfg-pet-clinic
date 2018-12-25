@@ -1,12 +1,13 @@
 package pt.andronikus.sfgpetclinic.service.map;
 
+import org.springframework.stereotype.Service;
 import pt.andronikus.sfgpetclinic.model.Vet;
-import pt.andronikus.sfgpetclinic.service.CrudService;
 import pt.andronikus.sfgpetclinic.service.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet,Long> implements CrudService<Vet,Long> {
+@Service
+public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
 
     @Override
     public Vet findById(Long id) {
@@ -20,7 +21,7 @@ public class VetServiceMap extends AbstractMapService<Vet,Long> implements CrudS
 
     @Override
     public Vet save(Vet object) {
-        return super.save(object.getId(),object);
+        return super.save(object);
     }
 
     @Override

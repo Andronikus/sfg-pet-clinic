@@ -1,11 +1,13 @@
 package pt.andronikus.sfgpetclinic.service.map;
 
+import org.springframework.stereotype.Service;
 import pt.andronikus.sfgpetclinic.model.Owner;
-import pt.andronikus.sfgpetclinic.service.CrudService;
+import pt.andronikus.sfgpetclinic.service.OwnerService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements CrudService<Owner,Long> {
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
     @Override
     public Owner findById(Long id) {
         return super.findByID(id);
@@ -18,7 +20,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements C
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object.getId(),object);
+        return super.save(object);
     }
 
     @Override
@@ -29,5 +31,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements C
     @Override
     public void deleteById(Long id) {
         super.deleteById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 }
