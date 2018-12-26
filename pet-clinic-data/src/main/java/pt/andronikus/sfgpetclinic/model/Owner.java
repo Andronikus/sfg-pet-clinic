@@ -1,5 +1,7 @@
 package pt.andronikus.sfgpetclinic.model;
 
+import org.springframework.core.style.ToStringCreator;
+
 import java.util.Set;
 
 public class Owner extends Person {
@@ -40,5 +42,14 @@ public class Owner extends Person {
 
     public void setPets(Set<Pet> pets) {
         this.pets = pets;
+    }
+
+    public String toString(){
+        return new ToStringCreator(this).append("id",this.getId())
+                                             .append("firstName", this.getFirstName())
+                                             .append("lastname", this.getLastName())
+                                             .append("address", this.getAddress())
+                                             .append("city",this.getAddress())
+                                             .append("telephone", this.getTelephone()).toString();
     }
 }
